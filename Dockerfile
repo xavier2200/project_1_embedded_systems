@@ -1,5 +1,6 @@
 ## Base Image from intel dlstreamer
-FROM intel/dlstreamer:2025.0.1.2-ubuntu22 
+ARG OS_VER="2023.0.0-ubuntu22-gpu682-dpcpp-devel"
+FROM intel/dlstreamer:${OS_VER}
 
 USER root
 
