@@ -28,6 +28,9 @@ USER dlstreamer
 
 ##################All that dont need root####################
 
-RUN pip3 install pillow matplotlib
+RUN pip3 install ipywidgets \
+    ipywebrtc \
+    pillow \
+    matplotlib
 
 RUN mkdir models && cd models && omz_downloader --name person-vehicle-bike-detection-2004 --precisions FP32

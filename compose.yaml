@@ -1,0 +1,17 @@
+version: "3.9" ##specify the file format version
+services: #each service corresponds to a container
+  dlstreamer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tec_embedded/vehicle_person_detection:devel
+    privileged: true # grant access to all resources
+    network_mode: host #indicates to docker to share the host network
+    working_dir: /home/dlstreamer # sets the working directory
+    devices:
+      - /dev/dri:/dev/dri  ## access to gpu or other accelerator
+    volumes:
+      - ~/.Xauthority:/home/dlstreamer/.Xauthority #maps x-authentication file
+      - /tmp/.X11-unix:/tmp/.X11-unix #maps the x11 socket directory
+      - /dev/bus/usb:/dev/bus/usb #allows usb devices access
+      - ./python_test:/home/dlstreamer/code:rw ## maps current directory to that folder on the container
