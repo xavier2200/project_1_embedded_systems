@@ -34,4 +34,6 @@ RUN pip3 install ipywidgets \
     pillow \
     matplotlib
 
-RUN mkdir models && cd models && omz_downloader --name person-vehicle-bike-detection-2004 --precisions FP32
+RUN mkdir models && cd models && omz_downloader --name person-vehicle-bike-detection-2004 --precisions FP32 &&\
+    omz_downloader --name person-attributes-recognition-crossroad-0230 --precisions FP32 && \
+    omz_downloader --name vehicle-attributes-recognition-barrier-0039 --precisions FP32 \

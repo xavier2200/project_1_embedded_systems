@@ -15,7 +15,10 @@ services: #each service corresponds to a container
       - /tmp/.X11-unix:/tmp/.X11-unix #maps the x11 socket directory
       - /dev/bus/usb:/dev/bus/usb #allows usb devices access
       - ./python_test:/home/dlstreamer/code:rw ## maps current directory to that folder on the container
-      
+    environment:
+      - XDG_RUNTIME_DIR=/tmp
+      - DISPLAY=${DISPLAY}
+
     stdin_open: true  # equivalent to docker run -i
     tty: true         # equivalent to docker run -t
     command: bash     # starts bash shell
