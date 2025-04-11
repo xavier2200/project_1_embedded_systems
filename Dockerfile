@@ -35,8 +35,7 @@ USER dlstreamer
 
 ##################All that dont need root####################
 
-RUN pip3 install ipywidgets \
-    ipywebrtc \
+RUN pip3 install \
     pillow \
     matplotlib
 

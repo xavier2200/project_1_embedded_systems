@@ -8,6 +8,7 @@ services: #each service corresponds to a container
     privileged: true # grant access to all resources
     network_mode: host #indicates to docker to share the host network
     working_dir: /home/dlstreamer # sets the working directory
+
     devices:
       - /dev/dri:/dev/dri  ## access to gpu or other accelerator
     volumes:
