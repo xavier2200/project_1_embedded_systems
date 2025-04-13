@@ -59,3 +59,8 @@ IMAGE_INSTALL:append = " \
     gstreamer1.0-rtsp-server \
 "
 
+# Agregando layer para Networking de openembedded
+
+# Que pasa si se borra la carpeta donde se crea la imagen?
+
+En este caso es necesario borrar la carpeta ```/tmp``` y volver a cocinar para evitar conflictos.
