@@ -61,6 +61,13 @@ IMAGE_INSTALL:append = " \
 
 # Agregando layer para Networking de openembedded
 
+# Agregando la capa de dlstreamer
+
+- Ejecutamos:
+```bitbake-layers create-layer ../meta-dlstreamer```
+
 # Que pasa si se borra la carpeta donde se crea la imagen?
 
 En este caso es necesario borrar la carpeta ```/tmp``` y volver a cocinar para evitar conflictos.
+
+# Agregando la capa con nuestra aplicacion

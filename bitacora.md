@@ -1,0 +1,44 @@
+# Bitácora de Actividades
+
+## 28 de marzo, 2025
+* Se investigó el flujo de trabajo con el marco de trabajo de Intel DL Streamer y sus características.
+* Se estudió como utilizar tuberias a traves de este marco de trabajo.
+
+## 29 de marzo, 2025
+* Se realizó la primera búsqueda del modelo de interés de Model Zoo.
+
+## 31 de marzo, 2025
+* Se intentó correr un primer modelo de Model Zoo y sus dependencias.
+
+## 7 de abril, 2025
+* Se estudio el repositorio del taller del dlstreamer y se utilizó el ejemplo basico de deteccion de vehiculos, personas y bicicletas y sus caracteristicas.
+* Errores encontrados: el path dentro del archivo .py debe ser referente a lo interno del contenedor docker.
+* Referencia: https://github.com/lumurillo/openvino-workshop-tec/blob/main/opencv_gst_example.ipynb
+
+## 11 de abril, 2025
+* El modelo se logró correr dentro de un contenedor Docker para el modelo de Vehicle and pedestrian tracking.
+* Evidencia:
+  ```
+  docker compose run --rm dlstreamer bash
+  python3 code/main.py
+  ```
+
+  ![image](./figuras/program_test.png)
+
+## 12 de abril, 2025
+
+- Se cocino la imagen minima con las siguientes dependencias:
+  - openvino
+  - opencv
+  - gstreamer
+  - openssh
+  - dependencias de networking
+  - python3
+
+- Es necesario agregar lo siguiente para aceptar la licencia de ciertos plugins de gstreamer:
+  - LICENSE_FLAGS_ACCEPTED += "commercial"
+
+- Layers usadas hasta ese momento:
+![image](./figuras/layers_1) 
+
+
