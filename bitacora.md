@@ -42,3 +42,11 @@
 ![image](./figuras/layers_1) 
 
 
+## 13-14 de abril, 2025. 
+
+- Se intentó crear una capa para dlstreamer sin exito
+
+## 15-16 de abril 2025
+
+- Se intentó compilar el codigo de dlstreamer dentro de la meta-layer de yocto pero no sirve
+- No logro encontrar solucion a los problemas
