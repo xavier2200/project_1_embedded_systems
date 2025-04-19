@@ -50,3 +50,13 @@
 
 - Se intentó compilar el codigo de dlstreamer dentro de la meta-layer de yocto pero no sirve
 - No logro encontrar solucion a los problemas
+
+## 17-18 de abril 2025
+
+- Se agrego funcionalidad de cliente dhcp para obtener automaticamente la ip.
+- Se intentó nuevamente crear la capa para usar Dlstreamer sin exito.
+
+## 19 de abril 2025
+
+- Se acomoda una version del codigo en python para que pueda reproducir un video usando Gstreamer dentro de la imagen
+- Acomodo y revision del código
