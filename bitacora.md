@@ -63,4 +63,3 @@
 - Tutorial listo
 - Revision de la bitacora
 - Agrego listas de dependencias
-- agrego 
