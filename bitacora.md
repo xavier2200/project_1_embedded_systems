@@ -39,7 +39,7 @@
   - LICENSE_FLAGS_ACCEPTED += "commercial"
 
 - Layers usadas hasta ese momento:
-![image](./figuras/layers_1) 
+![image](./figuras/layers_1.png) 
 
 
 ## 13-14 de abril, 2025. 
