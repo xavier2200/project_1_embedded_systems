@@ -1,5 +1,33 @@
 # Tutorial para crear las receta para cocinar imagen personalizada usando yocto
 
+## Descripcion del sistema Host:
+
+- Se utilizo una maquina virtual con 12 nucleos y 12GB de memoria ram
+- Sistema operativo:
+```
+Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.5 LTS
+Release:        22.04
+Codename:       jammy
+
+```
+
+## Aplicacion seleccionada:
+
+ Deteccion de vehiculos, personas y sus caracteristicas
+
+### Descripcion del problema a resolver:
+
+En los talleres mecanicos es de gran importancia registrar un vehiculo al momento de que este ingrese al taller para algun tipo de mantenimiento ya que es necesario tomar datos como lo son la matricula y ademas tomar fotografias del mismo. Por lo cual, la idea es basandose en este sistema de deteccion de vehiculos y sus caracteristicas, crear un sistema que automaticamente obtenga la placa del vehiculo y guarde fotografias del mismo en una base de datos.
+
+## Dependencias requeridas por la aplicacion:
+
+- python 3
+- opencv habilitado para usar gstreamer
+- gstreamer
+- dlstreamer
+- openvino
+
 ### Recetas:
 
  - Clonamos el repo de poky y usamos la version deseada con el siguiente comando:
@@ -106,3 +134,14 @@ En este caso es necesario borrar la carpeta ```/tmp``` y volver a cocinar para e
 ```
 bitbake core-image-minimal
 ```
+
+# Referencias:
+[1] https://docs.openvino.ai/2024/get-started/install-openvino/install-openvino-yocto.html
+
+[2] https://github.com/yoctoproject/poky
+
+[3] https://gstreamer.freedesktop.org/
+
+[4] https://dlstreamer.github.io/dev_guide/advanced_install/advanced_install_guide_index.html
+
+[5] https://github.com/xavier2200/meta-myapp

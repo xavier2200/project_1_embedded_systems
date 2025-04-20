@@ -60,3 +60,7 @@
 
 - Se acomoda una version del codigo en python para que pueda reproducir un video usando Gstreamer dentro de la imagen
 - Acomodo y revision del código
+- Tutorial listo
+- Revision de la bitacora
+- Agrego listas de dependencias
+- agrego 
