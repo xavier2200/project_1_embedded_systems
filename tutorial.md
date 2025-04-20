@@ -18,37 +18,39 @@
 
 ```git checkout -t origin/scarthgap -b my-scarthgap```
 
+- Añadimos soporte para Gstreamer y networking agregando las siguientes capas asumiendo que estamos dentro de ```build```:
+```
+bitbake-layers add-layer ../meta-openembedded/meta-multimedia
+bitbake-layers add-layer ../meta-openembedded/meta-networking
+bitbake-layers add-layer ../meta-intel
+bitbake-layers add-layer ../meta-openembedded/meta-oe
+bitbake-layers add-layer ../meta-openembedded/meta-python
+bitbake-layers add-layer ../meta-clang
+```
+
 - La imagen corrio bien pero no tiene los paquetes:
+
 ![image](./figuras/error_no_packages.png)
 
 - Ese error no tiene sentido porque el comando se corre en el host machine se puede observar que corre con exito
+
 ![image](./figuras/pack_host.png)
 
 - Se agrego la capa meta-multimedia para el soporte de gstreamer pero olvide modificar el local.conf agregar lo siguiente:
 
-# Add GStreamer support
-IMAGE_INSTALL:append = " \
-    gstreamer1.0 \
-    gstreamer1.0-plugins-base \
-    gstreamer1.0-plugins-good \
-    gstreamer1.0-plugins-bad \
-    gstreamer1.0-libav \
-    gstreamer1.0-python \
-    gstreamer1.0-rtsp-server \
-"
+# Añadiendo soporte para GStreamer
 
-IMAGE_INSTALL:append = " \
-    gstreamer1.0-tools \
-"
 
 - Error debido al requerimiento de licencia
+
 ![image](./figuras/error_license.png)
 
-- Error de paquetes producido por mal nombramiento:
-![image](./figuras/package_error_tools-utils.png)
+- Correccion añadimos lo siguiente a local.conf ```LICENSE_FLAGS_ACCEPTED += "commercial"```
+
 
 - Correccion eliminar lo anterior para gstreamer y añadir lo siguiente:
-# GStreamer packages
+### GStreamer packages
+```
 IMAGE_INSTALL:append = " \
     gstreamer1.0 \
     gstreamer1.0-plugins-base \
@@ -57,17 +59,50 @@ IMAGE_INSTALL:append = " \
     gstreamer1.0-libav \
     gstreamer1.0-python \
     gstreamer1.0-rtsp-server \
+    gstreamer1.0-meta-base \
 "
+```
 
-# Agregando layer para Networking de openembedded
+## Agregando la capa para la aplicacion
 
-# Agregando la capa de dlstreamer
+- Clonamos el repositorio meta-myapp:
+
+```https://github.com/xavier2200/meta-myapp```
 
 - Ejecutamos:
-```bitbake-layers create-layer ../meta-dlstreamer```
 
-# Que pasa si se borra la carpeta donde se crea la imagen?
+```bitbake-layers add-layer ../meta-myapp```
+
+- Agregamos el soporte necesario dentro de local.conf
+
+```person-vehicle-detection```
+
+## Agregamos dependencias para el programa, utilidades extra para comunicaciones y nuestra aplicacion:
+
+``` 
+IMAGE_INSTALL:append = openssh \
+                    openssh-sshd\
+                    openssh-sftp \
+                    openssh-sftp-server \
+                    python3-core \
+                    python3-modules \
+                    opencv \
+                    dhcpcd \
+                    xauth \
+                    person-vehicle-detection"
+```
+### Con lo siguiente habilitamos el redireccionamiento del servidor X para las ventanas emergentes
+
+```
+PACKAGECONFIG:append:pn-openssh = " x11"
+```
+
+## Que pasa si se borra la carpeta donde se crea la imagen?
 
 En este caso es necesario borrar la carpeta ```/tmp``` y volver a cocinar para evitar conflictos.
 
-# Agregando la capa con nuestra aplicacion
+# Ahora si, a cocinar:
+
+```
+bitbake core-image-minimal
+```
