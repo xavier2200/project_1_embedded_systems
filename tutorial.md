@@ -2,7 +2,7 @@
 
 ## Descripcion del sistema Host:
 
-- Se utilizo una maquina virtual con 12 nucleos y 12GB de memoria ram
+- Se utilizo una maquina virtual con 12 nucleos, 12GB de memoria ram y 250GB de almacenamiento.
 - Sistema operativo:
 ```
 Distributor ID: Ubuntu
@@ -66,6 +66,10 @@ bitbake-layers add-layer ../meta-clang
 
 - Se agrego la capa meta-multimedia para el soporte de gstreamer pero olvide modificar el local.conf agregar lo siguiente:
 
+# Target machine
+
+Dentro del archivo local.conf usamos la maquina por defecto ya que corresponde a una arquitectura x86.
+
 # Añadiendo soporte para GStreamer
 
 
@@ -128,6 +132,14 @@ PACKAGECONFIG:append:pn-openssh = " x11"
 ## Que pasa si se borra la carpeta donde se crea la imagen?
 
 En este caso es necesario borrar la carpeta ```/tmp``` y volver a cocinar para evitar conflictos.
+
+# Implementacion en virtualbox
+
+Agregamos lo siguiente para poder crear un disco duro virtual para usar en virtualbox
+
+```
+IMAGE_FSTYPES = "wic.vdi"
+```
 
 # Ahora si, a cocinar:
 
