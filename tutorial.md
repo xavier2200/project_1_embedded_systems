@@ -147,13 +147,3 @@ IMAGE_FSTYPES = "wic.vdi"
 bitbake core-image-minimal
 ```
 
-# Referencias:
-[1] https://docs.openvino.ai/2024/get-started/install-openvino/install-openvino-yocto.html
-
-[2] https://github.com/yoctoproject/poky
-
-[3] https://gstreamer.freedesktop.org/
-
-[4] https://dlstreamer.github.io/dev_guide/advanced_install/advanced_install_guide_index.html
-
-[5] https://github.com/xavier2200/meta-myapp
