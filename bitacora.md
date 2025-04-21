@@ -63,3 +63,7 @@
 - Tutorial listo
 - Revision de la bitacora
 - Agrego listas de dependencias
+
+## 20 de abril 2025
+
+- Revision y ultimas correcciones del tutorial y reporte de errores
