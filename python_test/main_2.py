@@ -36,7 +36,7 @@ RECLASSIFY_INTERVAL=10 # Reclassify interval (run classification every 10th fram
 INPUT="/usr/bin/code/person-bicycle-car-detection.mp4"
 
 pipeline_str = (
-     f'v4l2src ! decodebin ! videoconvert ! appsink'
+     f'filesrc location={INPUT} ! decodebin ! videoconvert ! appsink'
 )
 
 ret = gst_launch(pipeline_str)
