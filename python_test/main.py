@@ -33,13 +33,11 @@ DETECTION_INTERVAL=3
 RECLASSIFY_INTERVAL=10 # Reclassify interval (run classification every 10th frame)
 
 # Input
-INPUT="https://www.youtube.com/watch?v=6dp-bvQ7RWo"
+INPUT="https://github.com/intel-iot-devkit/sample-videos/raw/refs/heads/master/person-bicycle-car-detection.mp4"
 
 pipeline_str = (
-    # f'urisourcebin buffer-size=4096 uri={INPUT} ! '
-    # f'decodebin ! '
-    f'v4l2src !'
-    f'videoconvert !'
+    f'urisourcebin buffer-size=4096 uri={INPUT} ! '
+    f'decodebin ! '
     f'queue ! '
     f'gvadetect model={DETECTION_MODEL} model-proc={DETECTION_MODEL_PROC} inference-interval={DETECTION_INTERVAL} threshold=0.4 device={DEVICE} ! '
     f'queue ! '
