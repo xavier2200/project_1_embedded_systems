@@ -9,6 +9,7 @@ USER root
 RUN apt-get update; \
     apt-get install -y git \
         libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+RUN pip3 install ultralytics
 
 # Uninstall the current OpenCV module
 RUN pip3 uninstall -y opencv-python
