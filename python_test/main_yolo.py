@@ -12,8 +12,11 @@ def run_inference(frame):
     return annotated_frame
 
 # Define GStreamer pipeline correctly
-pipeline = "videotestsrc ! videoconvert ! video/x-raw,format=BGR ! appsink"
+INPUT="/usr/bin/code/person-bicycle-car-detection.mp4"
 
+pipeline = (
+     f'filesrc location={INPUT} ! decodebin ! videoconvert ! appsink'
+)
 # Open GStreamer pipeline
 cap = cv2.VideoCapture(pipeline, cv2.CAP_GSTREAMER)
 
