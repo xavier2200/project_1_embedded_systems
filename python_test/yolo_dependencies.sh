@@ -15,7 +15,7 @@ echo "Installing pyyaml..."
 pip3 install pyyaml
 
 echo "Installing requests..."
-pip install requests
+pip3 install requests
 
 echo "Installing psutil..."
 pip3 install psutil
