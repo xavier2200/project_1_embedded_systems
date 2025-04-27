@@ -67,3 +67,12 @@
 ## 20 de abril 2025
 
 - Revision y ultimas correcciones del tutorial y reporte de errores
+
+## 26 de abril 2025
+
+- se integró exitosamente el modelo YOLO 11 dentro de la imagen
+
+## 27 de abril 2025
+
+- ajustes finales dentro de local conf
+- preparacion y revision para la presentación

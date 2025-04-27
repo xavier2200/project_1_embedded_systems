@@ -147,3 +147,30 @@ IMAGE_FSTYPES = "wic.vdi"
 bitbake core-image-minimal
 ```
 
+# Corriendo YOLO dentro de la imagen
+
+## Agregamos las siguientes dependencias por medio de yocto
+
+- matplotlib
+- tqdm
+- pyyaml
+- requests
+- psutils
+- pip3
+
+## Coninamos
+
+```
+bitbake core-image-minimal
+```
+
+## Instalamos pytorch dentro de la imagen
+
+```
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cpu
+```
+o
+
+```
+source /usr/bin/code/yolo_dependencies.sh
+```
